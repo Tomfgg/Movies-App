@@ -7,9 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class MoviesSkipTestsService {
 
-  constructor(private _HttpClient: HttpClient) { }
+  constructor(private HttpClient: HttpClient) { }
 
   getTrending(): Observable<any> {
-    return this._HttpClient.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`);
-  }
+    
+  return this.HttpClient.get(`https://api.themoviedb.org/3/movie/popular?api_key=21d9026e2261f8044a3c97114db3d18b`);
+  
+  
+  
+    }
 }

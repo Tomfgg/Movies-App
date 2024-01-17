@@ -9,17 +9,6 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  name : string;
-  constructor(){
-    console.log('CONST.')
-    this.name = "Martina"
-  }
+  
 
-  ngOnInit(){
-    console.log("ON init")
-  }
-
-  ngDoCheck(){}
-
-  ngOnDestroy(){}
 }
