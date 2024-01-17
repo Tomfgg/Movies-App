@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit {imgPrefix:string = 'https://image.tmdb.org/t/p/w500/';
+  
   trendingMovies: any[] = [];
 
   constructor(private _MoviesSkipTestsService: MoviesSkipTestsService) { }

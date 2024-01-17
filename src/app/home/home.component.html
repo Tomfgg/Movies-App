@@ -1,15 +1,19 @@
 <div class="container">
-        <div class="row py-5">
-<div class="col-md-2">
-        
-
-</div>
-@for(movie of trendingMovies; track movie.id){
-        <div  class="col-md-2"></div>
-
-        <h6>{{movie.title}}</h6>  
-}
- 
-
-</div>
-</div>
+        <div class="row py-5  gap-3 justify-content-center">
+            <div  *ngFor='let movie of trendingMovies' class="col-md-2 card "  style="width: 15rem;">
+    <img  class="  img-fluid" [src]="imgPrefix+movie.poster_path">
+    
+     <!-- movies.component.html -->
+    <div class="circle-progress">
+        <h5 class="percentage fw-bolder">{{ movie.vote_average.toFixed(1) }}<sup>%</sup></h5>
+      </div>
+      
+                <h4 style="font-size: 1.2vw;">{{movie.title}}</h4>
+                <h6 class="text-secondary " style="font-size: 1vw;">{{movie.release_date}}</h6>
+               <div class="heart d-flex justify-content-end">
+                <i class="fa-regular fa-heart text-end"></i>
+               </div>
+    
+            </div>
+        </div>
+    </div>
