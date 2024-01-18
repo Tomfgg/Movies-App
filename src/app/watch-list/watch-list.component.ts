@@ -16,5 +16,20 @@ export class WatchListComponent implements OnInit {
   ngOnInit(){
     this.favs=this.obj_watch_list.watch_list
   }
+  switch(id: number) {
+    console.log(id);
+    // console.log(this.trendingMovies);
+    console.log(this.favs.find((obj) => obj.id == id));
+
+    if (this.favs.find(obj => obj.id == id).fav) {
+      // this.favs.find(obj => obj.id == id).fav = false
+      this.favs=this.favs.filter(obj=>obj.id!=id)
+    }
+    else this.favs.find(obj => obj.id == id).fav = true
+  }
+
+  send_to_access(obj: any) {
+    this.obj_watch_list.push_or_remove(obj)
+  }
 
 }

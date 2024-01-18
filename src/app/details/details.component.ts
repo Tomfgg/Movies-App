@@ -44,14 +44,18 @@ export class DetailsComponent implements OnInit {
   id!:number;
   rate!: number
   star_arr: boolean[] = []
+  // fav!:boolean
   // to_be_sent!: MovieImpData
 
   // hh!: any[];
   constructor(private http: HttpClient, private movie_id: MovieIdService, private access_watch_list:AccessWatchListService) { }
   ngOnInit() {
     this.id=this.movie_id.id;
+    // this.fav=this.movie_id.fav
     this.http.get(`https://api.themoviedb.org/3/movie/${this.id}?api_key=00e3d9fcbfc3ef2989c1d5d22f5de19f`).subscribe(val => {this.movie=val
       console.log(this.movie);
+      if(this.access_watch_list.watch_list.some(obj=>obj.id==this.movie.id)) this.movie.fav=true
+      else this.movie.fav=false
       this.rate = this.movie.vote_average / 2
       this.star();
 
@@ -80,9 +84,9 @@ export class DetailsComponent implements OnInit {
     // console.log(this.item);
 
   }
-  toggle: boolean = false;
+  // toggle: boolean = false;
   switch() {
-    this.toggle = !this.toggle
+    this.movie.fav = !this.movie.fav
   }
 
   // rate: number =  this.movie.vote_average/2
