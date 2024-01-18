@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img [src]="imgPrefix+movie.poster_path" class="img-fluid" alt="Product Image">
+        </div>
+        <div class="col-md-6">
+            <div class="hearts-flex"> 
+            <h2 class="mb-4">{{movie.title}}</h2>
+            <div>
+            @if(!toggle){<img class="hearts" (click)="switch()" src="../../assets/white.jpg">}
+            @else{<img class="hearts" (click)="switch()" src="../../assets/y1.png">}
+            </div>
+            </div>
+            <p class="text-muted">{{movie.release_date|date}}</p>
+            @for(star of star_arr ; track $index)
+            {
+            @if(star) {<img class="star" src="../../assets/blackstt.png">}
+            @else {<img class="star" src="../../assets/blackst.png">}
+            }
+            <p>{{movie.overview}}</p>
+            @for(genre of movie.genres ; track $index){<button type="button" id="yellow" class="btn btn-warning">{{genre.name}}</button>}
+      <div class="runtime"> <p class="font-weight-bold margin">Duration: </p> {{ movie.runtime}} minutes</div>
+      <div class="runtime"> <p class="font-weight-bold margin">Languages: </p> @for(lang of movie.spoken_languages;track $index){<p class="lang">{{lang.name}}</p>}</div>
+     <div> @for(comp of movie.production_companies ; track $index) {<img class="logo" [src]="imgPrefix+comp.logo_path">} </div>
+            <!-- <button class="btn btn-primary"><i href="movie."></i> </button> -->
+        </div>
+    </div>
+
+    <!-- <div class="row mt-5">
+        <div class="col-md-12">
+            <h3>Product Specifications</h3>
+            <ul>
+                <li>Specification 1: Lorem ipsum dolor sit amet</li>
+                <li>Specification 2: Consectetur adipiscing elit</li>
+                <li>Specification 3: Sed do eiusmod tempor incididunt</li>
+            </ul>
+        </div>
+    </div> -->
+    <hr>
+</div>

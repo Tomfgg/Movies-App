@@ -1,0 +1,34 @@
+#yellow{
+    background-color: #FEE253;
+    border-color: #FEE253;
+    margin-left: 2rem;
+}
+.runtime{
+    display: flex;
+}
+.margin{
+    margin-right: 1rem;
+    font-weight: 700;
+}
+.lang{
+    margin-right: 1rem;
+}
+.logo{
+    width: 5rem;
+    margin-right: 3rem;
+}
+.hearts{
+    width: 40px;
+}
+.hearts-flex{
+    display: flex;
+}
+.mb-4{
+    margin-right: 25rem;
+}
+.star{
+    width: 1.5rem;
+}
+*{
+    margin-bottom: 15px;
+}
