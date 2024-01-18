@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {imgPrefix:string = 'https://image.
     this._MoviesSkipTestsService.getTrending().subscribe({
       next: (data) => {
         this.trendingMovies = data.results;
+        console.log(this.trendingMovies);
+        
       },
       error: (error) => {
         console.error('Error fetching trending movies:', error);

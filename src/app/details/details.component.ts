@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { MovieIdService } from '../movie-id.service';
+import { AccessWatchListService } from '../access-watch-list.service';
+// import { MovieImpData } from '../movie-imp-data';
 
 // import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -42,9 +44,10 @@ export class DetailsComponent implements OnInit {
   id!:number;
   rate!: number
   star_arr: boolean[] = []
+  // to_be_sent!: MovieImpData
 
   // hh!: any[];
-  constructor(private http: HttpClient, private movie_id: MovieIdService) { }
+  constructor(private http: HttpClient, private movie_id: MovieIdService, private access_watch_list:AccessWatchListService) { }
   ngOnInit() {
     this.id=this.movie_id.id;
     this.http.get(`https://api.themoviedb.org/3/movie/${this.id}?api_key=00e3d9fcbfc3ef2989c1d5d22f5de19f`).subscribe(val => {this.movie=val
@@ -53,6 +56,15 @@ export class DetailsComponent implements OnInit {
       this.star();
 
       // console.log(7);
+
+
+      // this.to_be_sent.name = this.movie.original_title
+      // this.to_be_sent.date = this.movie.release_date
+      // this.to_be_sent.img = this.movie.poster_path
+      // this.to_be_sent.overview = this.movie.overview
+      // this.to_be_sent.vote_avg = this.movie.vote_average
+      // this.to_be_sent.vote_count = this.movie.vote_count
+
 
 
       // console.log(this.item);
@@ -87,7 +99,9 @@ export class DetailsComponent implements OnInit {
 }
 
 
-
+send_to_access(obj:any){
+  this.access_watch_list.push_or_remove(obj)
+}
 
 
 }

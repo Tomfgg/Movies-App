@@ -7,8 +7,8 @@
             <div class="hearts-flex"> 
             <h2 class="mb-4">{{movie.title}}</h2>
             <div>
-            @if(!toggle){<img class="hearts" (click)="switch()" src="../../assets/white.jpg">}
-            @else{<img class="hearts" (click)="switch()" src="../../assets/y1.png">}
+            @if(!toggle){<img class="hearts" (click)="send_to_access(movie)" (click)="switch()" src="../../assets/white.jpg">}
+            @else{<img class="hearts" (click)="send_to_access(movie)" (click)="switch()" src="../../assets/y1.png">}
             </div>
             </div>
             <p class="text-muted">{{movie.release_date|date}}</p>
