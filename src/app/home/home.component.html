@@ -8,10 +8,19 @@
     </div>
 
 <div class="container">
+
   <div class="row py-5 gap-3 justify-content-center">
   <div routerLink="info" (click)="pass_id(movie.id)" *ngFor='let movie of trendingMovies | search: term' class="col-md-2 card" style="width: 15rem;">
     <img class="img-fluid" [src]="imgPrefix + movie.poster_path">
   
+
+
+        <div class="row py-5  gap-3 justify-content-center">
+            @for(movie of trendingMovies;track $index)
+            {
+            <div    class="col-md-2 card "  style="width: 15rem;">
+                <div routerLink="info" (click)="pass_id(movie.id)">
+    <img  class="  img-fluid" [src]="imgPrefix+movie.poster_path">
 
     
      <!-- movies.component.html -->
@@ -22,9 +31,16 @@
                 <h4 style="font-size: 1.2vw;">{{movie.title}}</h4>
                 <h6 class="text-secondary " style="font-size: 1vw;">{{movie.release_date}}</h6>
                <div class="heart d-flex justify-content-end">
-                <i class="fa-regular fa-heart text-end"></i>
+                <!-- <i class="fa-regular fa-heart text-end"></i> -->
+                </div>
+                
                </div>
+            <div>
+                @if(!movie.fav){<img class="hearts" (click)="send_to_access(movie)" (click)="switch(movie.id)" src="../../assets/white.jpg">}
+                @else{<img class="hearts" (click)="send_to_access(movie)" (click)="switch(movie.id)" src="../../assets/y1.png">}
+            </div>
     
             </div>
+        }
         </div>
     </div>

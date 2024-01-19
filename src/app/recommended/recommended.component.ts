@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieIdService } from '../movie-id.service';
 import { RouterLink } from '@angular/router';
+import { AccessWatchListService } from '../access-watch-list.service';
 
 
 
@@ -42,4 +43,5 @@ export class RecommendedComponent implements OnInit {
   getTimeStamp(): number {
     return new Date().getTime();
   }
+  
 }
