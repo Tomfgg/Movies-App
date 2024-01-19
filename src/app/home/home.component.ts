@@ -4,17 +4,19 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { MovieIdService } from '../movie-id.service';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../search.pipe';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterLink, ],
+  imports: [CommonModule, HttpClientModule, RouterLink, FormsModule,SearchPipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {imgPrefix:string = 'https://image.tmdb.org/t/p/w500/';
-  
+term: string = '';
   trendingMovies: any[] = [];
 
   constructor(private _MoviesSkipTestsService: MoviesSkipTestsService , private movie_id:MovieIdService) { }

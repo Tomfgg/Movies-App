@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import {SearchComponent} from'./search/search.component'
-import{ HomeComponent } from './home/home.component'
+
+import{ HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,6 @@ import{ HomeComponent } from './home/home.component'
     CommonModule,
     RouterOutlet,
     HeaderComponent,
-    SearchComponent,
     HomeComponent,
   
     
