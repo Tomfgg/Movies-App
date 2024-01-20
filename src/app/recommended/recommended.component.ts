@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieIdService } from '../movie-id.service';
 import { Router, RouterLink } from '@angular/router';
 import { Location } from '@angular/common';
+import { DatePipe } from '@angular/common';
+
+
 
 import { AccessWatchListService } from '../access-watch-list.service';
 
@@ -15,7 +18,8 @@ import { AccessWatchListService } from '../access-watch-list.service';
   standalone: true,
   imports: [HttpClientModule, CommonModule, RouterLink],
   templateUrl: './recommended.component.html',
-  styleUrl: './recommended.component.css'
+  styleUrl: './recommended.component.css',
+  providers:[DatePipe]
 })
 export class RecommendedComponent implements OnInit {
   imgPrefix: string = 'https://image.tmdb.org/t/p/w500/' 

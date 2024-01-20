@@ -11,3 +11,25 @@ i {
 .hearts {
     width: 40px;
 }
+h2{
+    color: grey;
+}
+button{
+    background-color: #FEE253 ;
+}
+/* .empty{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+} */
+.cent{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 80vh;
+}
+.film{
+    width: 30rem;
+}

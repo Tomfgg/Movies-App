@@ -17,6 +17,7 @@
             @if(star) {<img class="star" src="../../assets/blackstt.png">}
             @else {<img class="star" src="../../assets/blackst.png">}
             }
+            <span>({{movie.vote_count}})</span>
             <p>{{movie.overview}}</p>
             @for(genre of movie.genres ; track $index){<button type="button" id="yellow" class="btn btn-warning">{{genre.name}}</button>}
       <div class="runtime"> <p class="font-weight-bold margin">Duration: </p> {{ movie.runtime}} minutes</div>

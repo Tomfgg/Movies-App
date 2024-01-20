@@ -7,6 +7,8 @@ import { MovieIdService } from '../movie-id.service';
 
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from '../search.pipe';
+import { DatePipe } from '@angular/common';
+
 
 import { AccessWatchListService } from '../access-watch-list.service';
 
@@ -18,7 +20,8 @@ import { AccessWatchListService } from '../access-watch-list.service';
   standalone: true,
   imports: [CommonModule, HttpClientModule, RouterLink, FormsModule,SearchPipe],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [DatePipe]
 })
 export class HomeComponent implements OnInit {imgPrefix:string = 'https://image.tmdb.org/t/p/w500/';
 term: string = '';

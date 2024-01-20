@@ -1,18 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { AccessWatchListService } from '../access-watch-list.service';
+import { RouterLink } from '@angular/router';
+import { DatePipe } from '@angular/common';
+import { MovieIdService } from '../movie-id.service';
+
+
+
 
 @Component({
   selector: 'app-watch-list',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './watch-list.component.html',
-  styleUrl: './watch-list.component.css'
+  styleUrl: './watch-list.component.css',
+  providers: [DatePipe]
 })
 export class WatchListComponent implements OnInit {
   favs!:any[]
   imgPrefix: string = 'https://image.tmdb.org/t/p/w500/'
 
-  constructor(private obj_watch_list: AccessWatchListService){}
+  constructor(private obj_watch_list: AccessWatchListService, private movie_id: MovieIdService){}
   ngOnInit(){
     this.favs=this.obj_watch_list.watch_list
   }
@@ -33,6 +40,10 @@ export class WatchListComponent implements OnInit {
   }
   clear(){
     this.obj_watch_list.clearWishList()
+  }
+
+  pass_id(id: number) {
+    this.movie_id.get_id(id);
   }
 
 }

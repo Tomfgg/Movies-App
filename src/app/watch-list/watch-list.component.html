@@ -1,11 +1,19 @@
-@if(favs.length==0){<h2>empty watch list</h2>}
+@if(favs.length==0){
+    <div class="cent">
+    <div class="empty">
+        <img class="film" src="../../assets/film.jpg">
+        <h2>empty wish list</h2>
+        <button routerLink="../" type="button" class="btn btn-warning">explore popular movies</button>    
+    </div>
+    </div>
+}
 @else{
 <div class="container">
     <div class="row py-5  gap-3 justify-content-center">
         @for(fav of favs ; track $index)
         {
-        <div routerLink="info"   class="col-md-2 card "
-            style="width: 15rem;">
+        <div class="col-md-2 card " style="width: 15rem;">
+            <div routerLink="../info" (click)="pass_id(fav.id)">
             <img class="  img-fluid" [src]="imgPrefix+fav.poster_path">
 
             <!-- movies.component.html -->
@@ -18,6 +26,7 @@
             <!-- <div class="heart d-flex justify-content-end">
                 <i class="fa-regular fa-heart text-end"></i>
             </div> -->
+            </div>
             <div>
                 @if(fav.fav){<img class="hearts" (click)="send_to_access(fav)" (click)="switch(fav.id)"
                     src="../../assets/y1.png">}
@@ -26,7 +35,7 @@
         </div>
         }
     </div>
-    <button (click)="clear()">clear</button>
+    <!-- <button (click)="clear()">clear</button> -->
 </div>
 }
 
