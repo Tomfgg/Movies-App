@@ -14,6 +14,9 @@ export class MoviesSkipTestsService {
   return this.HttpClient.get(`https://api.themoviedb.org/3/movie/popular?api_key=21d9026e2261f8044a3c97114db3d18b`);
   
   
-  
     }
+
+  getPages(page:string):Observable<any>{
+    return this.HttpClient.get(`https://api.themoviedb.org/3/movie/popular?api_key=21d9026e2261f8044a3c97114db3d18b&page=${page}`)
+  }  
 }
