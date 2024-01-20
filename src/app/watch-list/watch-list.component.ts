@@ -31,5 +31,8 @@ export class WatchListComponent implements OnInit {
   send_to_access(obj: any) {
     this.obj_watch_list.push_or_remove(obj)
   }
+  clear(){
+    this.obj_watch_list.clearWishList()
+  }
 
 }

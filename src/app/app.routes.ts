@@ -5,6 +5,8 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { WatchListComponent } from './watch-list/watch-list.component';
+import { RecommendedComponent } from './recommended/recommended.component';
+
 
 export const routes: Routes = [
   {
@@ -14,6 +16,9 @@ export const routes: Routes = [
   {
     path: 'info',
     component: MovieInfoComponent,
+    children:[
+      { path: 'reco', component: RecommendedComponent }
+    ]
   },
   {
     path: 'watch-list',

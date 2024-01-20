@@ -50,7 +50,10 @@ export class DetailsComponent implements OnInit {
   // hh!: any[];
   constructor(private http: HttpClient, private movie_id: MovieIdService, private access_watch_list:AccessWatchListService) { }
   ngOnInit() {
-    this.id=this.movie_id.id;
+    // this.id=this.movie_id.id;
+    const storedNum = localStorage.getItem('key')
+    storedNum ? this.id = parseInt(storedNum) : this.id = this.movie_id.id
+    if (this.movie_id.id != undefined) this.id = this.movie_id.id
     // this.fav=this.movie_id.fav
     this.http.get(`https://api.themoviedb.org/3/movie/${this.id}?api_key=00e3d9fcbfc3ef2989c1d5d22f5de19f`).subscribe(val => {this.movie=val
       console.log(this.movie);

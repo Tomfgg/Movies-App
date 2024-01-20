@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieIdService } from '../movie-id.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { AccessWatchListService } from '../access-watch-list.service';
 
 
@@ -21,10 +23,14 @@ export class RecommendedComponent implements OnInit {
   movies!: any[];
   id!: number;
 
-  constructor(private http: HttpClient, private movie_id: MovieIdService){}
+  constructor(private http: HttpClient, private movie_id: MovieIdService,private router:Router,private wl:AccessWatchListService){}
 
   ngOnInit(): void {
-    this.id = this.movie_id.id;
+    const storedNum=localStorage.getItem('key')
+  this.id = storedNum ?  parseInt(storedNum) :  this.movie_id.id
+    if (this.movie_id.id!=undefined) this.id = this.movie_id.id
+    // else ;
+    console.log(this.id);
     this.http.get(`https://api.themoviedb.org/3/movie/${this.id}/recommendations?api_key=00e3d9fcbfc3ef2989c1d5d22f5de19f`)
     .subscribe(val => {
       
@@ -42,6 +48,14 @@ export class RecommendedComponent implements OnInit {
 
   getTimeStamp(): number {
     return new Date().getTime();
+  }
+
+  reload_page(id:number){
+    // this.router.navigate(['info']).then(()=>window.location.reload())
+    // window.location.href = window.location.href
+    localStorage.setItem('key', id.toString())
+    localStorage.setItem('data2',JSON.stringify(this.wl.watch_list))
+    window.location.reload()
   }
   
 }
