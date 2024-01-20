@@ -36,6 +36,10 @@ export class RecommendedComponent implements OnInit {
       
       this.return=val
       this.movies=this.return.results
+      for (let i = 0; i < this.movies.length; i++) {
+        if (this.wl.watch_list.some(obj => obj.id == this.movies[i].id)) this.movies[i].fav = true
+        else this.movies[i].fav = false
+      }
       console.log(this.movies)
     
     // console.log(this.movies);
@@ -56,6 +60,18 @@ export class RecommendedComponent implements OnInit {
     localStorage.setItem('key', id.toString())
     localStorage.setItem('data2',JSON.stringify(this.wl.watch_list))
     window.location.reload()
+  }
+  send_to_access(obj: any) {
+    this.wl.push_or_remove(obj)
+  }
+
+  switch(id: number) {
+    console.log(id);
+    // console.log(this.trendingMovies);
+    console.log(this.movies.find((obj) => obj.id == id));
+
+    if (this.movies.find(obj => obj.id == id).fav) this.movies.find(obj => obj.id == id).fav = false
+    else this.movies.find(obj => obj.id == id).fav = true
   }
   
 }
