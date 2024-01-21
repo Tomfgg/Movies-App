@@ -8,6 +8,8 @@ import { MovieIdService } from '../movie-id.service';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from '../search.pipe';
 import { DatePipe } from '@angular/common';
+import { MovieImpData } from '../movie-imp-data';
+import { MatIconModule } from '@angular/material/icon';
 
 
 import { AccessWatchListService } from '../access-watch-list.service';
@@ -22,7 +24,7 @@ import { PaginationComponent } from '../pagination/pagination.component';
     RouterLink,
     FormsModule,
     SearchPipe,
-    PaginationComponent,
+    PaginationComponent,DatePipe, MatIconModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
@@ -30,7 +32,8 @@ import { PaginationComponent } from '../pagination/pagination.component';
 export class HomeComponent implements OnInit {
   imgPrefix: string = 'https://image.tmdb.org/t/p/w500/';
   term: string = '';
-  trendingMovies: any[] = [];
+  trendingMovies!: any[] ;
+  // iconColor:string='yellow'
 
   constructor(
     private _MoviesSkipTestsService: MoviesSkipTestsService,
@@ -69,7 +72,6 @@ export class HomeComponent implements OnInit {
     console.log(id);
     // console.log(this.trendingMovies);
     console.log(this.trendingMovies.find((obj) => obj.id == id));
-
     if (this.trendingMovies.find((obj) => obj.id == id).fav)
       this.trendingMovies.find((obj) => obj.id == id).fav = false;
     else this.trendingMovies.find((obj) => obj.id == id).fav = true;

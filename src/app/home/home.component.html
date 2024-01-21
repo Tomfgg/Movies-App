@@ -33,33 +33,42 @@
         <!-- <img  class="  img-fluid" [src]="imgPrefix+movie.poster_path"> -->
 
         <!-- movies.component.html -->
-        <div class="circle-progress">
+
+        <!-- <div class="circle-progress">
           <h5 class="percentage fw-bolder">
             {{ movie.vote_average.toFixed(1)*10 }}<sup>%</sup>
           </h5>
-        </div>
+        </div> -->
 
-        <h4 style="font-size: 1.2vw">{{ movie.title }}</h4>
-        <h6 class="text-secondary" style="font-size: 1vw">
-          {{ movie.release_date }}
-        </h6>
-        <div class="heart d-flex justify-content-end">
-          <!-- <i class="fa-regular fa-heart text-end"></i> -->
+        <div class="progress yellow">
+          <span class="progress-left">
+            <span class="progress-bar"></span>
+          </span>
+          <span class="progress-right">
+            <span class="progress-bar"></span>
+          </span>
+          <div class="progress-value">{{ movie.vote_average.toFixed(1)*10 }}<sup>%</sup></div>
         </div>
+        <br>
+
+        <h4 >{{ movie.title }}</h4>
+        
       </div>
-      <!-- </div> -->
-      <div>
-        @if(!movie.fav){<img
-          class="hearts"
-          (click)="send_to_access(movie)"
-          (click)="switch(movie.id)"
-          src="../../assets/white.jpg"
-        />} @else{<img
-          class="hearts"
-          (click)="send_to_access(movie)"
-          (click)="switch(movie.id)"
-          src="../../assets/y1.png"
-        />}
+      <div class="mf">
+        <h5 class="text-secondary" >
+          {{ movie.release_date|date }}
+        </h5>
+        <!-- <div class="heart d-flex justify-content-end"> -->
+          <!-- <i class="fa-regular fa-heart text-end"></i> -->
+        <!-- </div> -->
+      
+        <!-- </div> -->
+        <div>
+          <!-- <mat-icon (click)="send_to_access(movie)" (click)="switch(movie.id)" [ngStyle]="{color: movie.iconColor}">favorite</mat-icon> -->
+          @if(!movie.fav){<img class="hearts " (click)="send_to_access(movie)" (click)="switch(movie.id)"
+            src="../../assets/heart.png" />} @else{<img class="hearts " (click)="send_to_access(movie)"
+            (click)="switch(movie.id)" src="../../assets/heart (1).png" />}
+        </div>
       </div>
     </div>
     <!-- } -->
