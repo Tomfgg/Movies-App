@@ -8,7 +8,6 @@ import { MovieIdService } from '../movie-id.service';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from '../search.pipe';
 import { DatePipe } from '@angular/common';
-import { MovieImpData } from '../movie-imp-data';
 import { MatIconModule } from '@angular/material/icon';
 
 
@@ -33,7 +32,6 @@ export class HomeComponent implements OnInit {
   imgPrefix: string = 'https://image.tmdb.org/t/p/w500/';
   term: string = '';
   trendingMovies!: any[] ;
-  // iconColor:string='yellow'
 
   constructor(
     private _MoviesSkipTestsService: MoviesSkipTestsService,
@@ -42,24 +40,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this._MoviesSkipTestsService.getTrending().subscribe({
-    //   next: (data) => {
-    //     this.trendingMovies = data.results;
-    //     for (let i = 0; i < this.trendingMovies.length; i++) {
-    //       if (
-    //         this.access.watch_list.some(
-    //           (obj) => obj.id == this.trendingMovies[i].id
-    //         )
-    //       )
-    //         this.trendingMovies[i].fav = true;
-    //       else this.trendingMovies[i].fav = false;
-    //     }
-    //     console.log(this.trendingMovies);
-    //   },
-    //   error: (error) => {
-    //     console.error('Error fetching trending movies:', error);
-    //   },
-    // });
+   
     this.parentMethod(this.pageNumber);
   }
 
@@ -67,10 +48,8 @@ export class HomeComponent implements OnInit {
     this.movie_id.get_id(id);
   }
 
-  // toggle: boolean = false;
   switch(id: number) {
     console.log(id);
-    // console.log(this.trendingMovies);
     console.log(this.trendingMovies.find((obj) => obj.id == id));
     if (this.trendingMovies.find((obj) => obj.id == id).fav)
       this.trendingMovies.find((obj) => obj.id == id).fav = false;

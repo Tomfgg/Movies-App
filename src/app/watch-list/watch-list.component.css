@@ -9,7 +9,7 @@ i {
     margin-bottom: 10%;
 }
 .hearts {
-    width: 40px;
+    width: 30px;
 }
 h2{
     color: grey;
@@ -17,12 +17,7 @@ h2{
 button{
     background-color: #FEE253 ;
 }
-/* .empty{
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-} */
+
 .cent{
     display: flex;
     align-items: center;
@@ -32,4 +27,9 @@ button{
 }
 .film{
     width: 30rem;
+}
+.mf {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }

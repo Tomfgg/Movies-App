@@ -7,20 +7,20 @@
         <img class="  img-fluid" [src]="imgPrefix+movie.poster_path">
 
             <div class="circle-progress">
-                <h5 class="percentage fw-bolder">{{ movie.vote_average.toFixed(1) }}<sup>%</sup></h5>
+                <h5 class="percentage fw-bolder">{{ movie.vote_average.toFixed(1)*10 }}<sup>%</sup></h5>
             </div>
 
             <h4 style="font-size: 1.2vw;">{{movie.title}}</h4>
-            <h6 class="text-secondary " style="font-size: 1vw;">{{movie.release_date|date}}</h6>
             <!-- <div class="heart d-flex justify-content-end">
                 <i class="fa-regular fa-heart text-end"></i>
             </div> -->
             </div>
 
-            <div>
+            <div class="mf">
+                <h6 class="text-secondary " style="font-size: 1vw;">{{movie.release_date|date}}</h6>
                 @if(!movie.fav){<img class="hearts" (click)="send_to_access(movie)" (click)="switch(movie.id)"
-                    src="../../assets/white.jpg">}
-                @else{<img class="hearts" (click)="send_to_access(movie)" (click)="switch(movie.id)" src="../../assets/y1.png">}
+                    src="../../assets/heart.png">}
+                @else{<img class="hearts" (click)="send_to_access(movie)" (click)="switch(movie.id)" src="../../assets/heart (1).png">}
             </div>
 
         </div>

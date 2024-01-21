@@ -25,21 +25,7 @@
       <div routerLink="info">
         <img class="img-fluid" [src]="imgPrefix + movie.poster_path" />
 
-        <!-- <div class="row py-5  gap-3 justify-content-center"> -->
-        <!-- @for(movie of trendingMovies;track $index) -->
-        <!-- { -->
-        <!-- <div    class="col-md-2 card "  style="width: 15rem;"> -->
-        <!-- <div routerLink="info" (click)="pass_id(movie.id)"> -->
-        <!-- <img  class="  img-fluid" [src]="imgPrefix+movie.poster_path"> -->
-
-        <!-- movies.component.html -->
-
-        <!-- <div class="circle-progress">
-          <h5 class="percentage fw-bolder">
-            {{ movie.vote_average.toFixed(1)*10 }}<sup>%</sup>
-          </h5>
-        </div> -->
-
+        
         <div class="progress yellow">
           <span class="progress-left">
             <span class="progress-bar"></span>
@@ -58,22 +44,15 @@
         <h5 class="text-secondary" >
           {{ movie.release_date|date }}
         </h5>
-        <!-- <div class="heart d-flex justify-content-end"> -->
-          <!-- <i class="fa-regular fa-heart text-end"></i> -->
-        <!-- </div> -->
-      
-        <!-- </div> -->
+        
         <div>
-          <!-- <mat-icon (click)="send_to_access(movie)" (click)="switch(movie.id)" [ngStyle]="{color: movie.iconColor}">favorite</mat-icon> -->
           @if(!movie.fav){<img class="hearts " (click)="send_to_access(movie)" (click)="switch(movie.id)"
             src="../../assets/heart.png" />} @else{<img class="hearts " (click)="send_to_access(movie)"
             (click)="switch(movie.id)" src="../../assets/heart (1).png" />}
         </div>
       </div>
     </div>
-    <!-- } -->
   </div>
-  <!-- </div> -->
 </div>
 <app-pagination (clickk)="parentMethod($event)">
 

@@ -9,5 +9,10 @@ i {
     margin-bottom: 10%;
 }
 .hearts {
-    width: 40px;
+    width: 30px;
+}
+.mf {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }

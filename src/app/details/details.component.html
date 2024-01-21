@@ -7,8 +7,8 @@
             <div class="hearts-flex"> 
             <h2 class="mb-4">{{movie.title}}</h2>
             <div>
-            @if(!movie.fav){<img class="hearts" (click)="send_to_access(movie)" (click)="switch()" src="../../assets/white.jpg">}
-            @else{<img class="hearts" (click)="send_to_access(movie)" (click)="switch()" src="../../assets/y1.png">}
+            @if(!movie.fav){<img class="hearts" (click)="send_to_access(movie)" (click)="switch()" src="../../assets/heart.png">}
+            @else{<img class="hearts" (click)="send_to_access(movie)" (click)="switch()" src="../../assets/heart (1).png">}
             </div>
             </div>
             <p class="text-muted">{{movie.release_date|date}}</p>
@@ -23,19 +23,9 @@
       <div class="runtime"> <p class="font-weight-bold margin">Duration: </p> {{ movie.runtime}} minutes</div>
       <div class="runtime"> <p class="font-weight-bold margin">Languages: </p> @for(lang of movie.spoken_languages;track $index){<p class="lang">{{lang.name}}</p>}</div>
      <div> @for(comp of movie.production_companies ; track $index) {<img class="logo" [src]="imgPrefix+comp.logo_path">} </div>
-            <!-- <button class="btn btn-primary"><i href="movie."></i> </button> -->
         </div>
     </div>
 
-    <!-- <div class="row mt-5">
-        <div class="col-md-12">
-            <h3>Product Specifications</h3>
-            <ul>
-                <li>Specification 1: Lorem ipsum dolor sit amet</li>
-                <li>Specification 2: Consectetur adipiscing elit</li>
-                <li>Specification 3: Sed do eiusmod tempor incididunt</li>
-            </ul>
-        </div>
-    </div> -->
+    
     <hr>
 </div>

@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieIdService } from '../movie-id.service';
 import { Router, RouterLink } from '@angular/router';
-import { Location } from '@angular/common';
 import { DatePipe } from '@angular/common';
 
 
@@ -46,7 +45,6 @@ export class RecommendedComponent implements OnInit {
       }
       console.log(this.movies)
     
-    // console.log(this.movies);
     })
 
   }
@@ -59,8 +57,6 @@ export class RecommendedComponent implements OnInit {
   }
 
   reload_page(id:number){
-    // this.router.navigate(['info']).then(()=>window.location.reload())
-    // window.location.href = window.location.href
     localStorage.setItem('key', id.toString())
     localStorage.setItem('data2',JSON.stringify(this.wl.watch_list))
     window.location.reload()
@@ -71,7 +67,6 @@ export class RecommendedComponent implements OnInit {
 
   switch(id: number) {
     console.log(id);
-    // console.log(this.trendingMovies);
     console.log(this.movies.find((obj) => obj.id == id));
 
     if (this.movies.find(obj => obj.id == id).fav) this.movies.find(obj => obj.id == id).fav = false

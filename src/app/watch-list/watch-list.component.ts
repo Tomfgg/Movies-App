@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccessWatchListService } from '../access-watch-list.service';
 import { RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MovieIdService } from '../movie-id.service';
 
 
@@ -10,7 +10,7 @@ import { MovieIdService } from '../movie-id.service';
 @Component({
   selector: 'app-watch-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,CommonModule],
   templateUrl: './watch-list.component.html',
   styleUrl: './watch-list.component.css',
   providers: [DatePipe]
@@ -25,11 +25,9 @@ export class WatchListComponent implements OnInit {
   }
   switch(id: number) {
     console.log(id);
-    // console.log(this.trendingMovies);
     console.log(this.favs.find((obj) => obj.id == id));
 
     if (this.favs.find(obj => obj.id == id).fav) {
-      // this.favs.find(obj => obj.id == id).fav = false
       this.favs=this.favs.filter(obj=>obj.id!=id)
     }
     else this.favs.find(obj => obj.id == id).fav = true
